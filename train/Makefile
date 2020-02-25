@@ -3,14 +3,14 @@ login:
 .PHONY: login
 
 build:
-	docker build -t mnist-fashion-serving:latest .	
+	docker build -t fashion-mnist-train .	
 .PHONY: build
 
-#local-test:
-	
-#.PHONY: local-test
+#local-run:
+#	docker run --rm -p 8080:8080 fashion-mnist-serving
+#.PHONY: local-run
 
-push:
-	sh push.sh
-.PHONY: push
+#local-query:
+#	curl -X POST http://localhost:8080/invocations -d '{"instances": [[  0,   0,   0,   0,   0, 182, 194, 189, 218, 219, 222, 229, 208, 194, 200, 192, 158, 168,  229, 199, 178, 168,  95,   0,   0,   0,   0,   0]]}'
+#.PHONY: local-query
 
