@@ -1,3 +1,3 @@
 local-train:
-	sh train_local.sh tf2.0-mnist-train-deploy:latest
+	sh train_local.sh mnist-fashion-serving:latest
 .PHONY: local-train
