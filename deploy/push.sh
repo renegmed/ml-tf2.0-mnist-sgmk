@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-IMAGE_NAME=mnist-fashion-serving
+# this commands  should be called after build 
+IMAGE_NAME=fashion-mnist-serving
 REGION=$(aws configure get region)
 ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
 

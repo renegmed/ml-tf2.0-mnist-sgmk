@@ -2,16 +2,16 @@
 FROM tensorflow/serving
 
 # Installing NGINX, used to rever proxy the predictions from SageMaker to TF Serving
-RUN apt-get update && apt-get install -y --no-install-recommends nginx git
+RUN apt-get update && apt-get install -y --no-install-recommends nginx git 
 
 # Copy our model folder to the container
-COPY model /saved_model_mnist
+COPY model /model
 
 # Copy NGINX configuration to the container
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # starts NGINX and TF serving pointing to our model
 ENTRYPOINT service nginx start | tensorflow_model_server --rest_api_port=8501 \
- --model_name=mnist-fashion \
- --model_base_path=/saved_model_mnist
+ --model_name=fashion_mnist \
+ --model_base_path=/model
 
